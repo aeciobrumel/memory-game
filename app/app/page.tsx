@@ -16,6 +16,7 @@ export default function Home() {
     const [time, setTime] = useState<number>(0);
     const [showCount, setShowCount] = useState<number>(0);
     const [gridItems, setGridItems] = useState<GridItemType[]>([]);
+    const hasWon = !playing && moves > 0;
 
     const resetAndCreateGrid = () => {
         setTime(0);
@@ -114,17 +115,18 @@ export default function Home() {
     return (
         <div className="mx-auto flex w-screen max-w-[750px] py-[50px] max-[750px]:flex-col">
             <div className="flex flex-col max-[750px]:m-[50px] max-[750px]:items-center ">
-                <a
-                    href="https://nextjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                >
-                    <div className="flex flex-row items-center justify-center text-2xl font-bold text-cyan-500">
-                        <Image src={LogoImg} alt="Next.js Logo" width={36} className="logo" />
-                        <div>Jogo da memória</div>
-                    </div>
-                </a>
+
+                <div className="flex items-center justify-start gap-2 rounded-2xl px-2 py-2 text-cyan-500 transition-colors duration-300 hover:bg-cyan-50 sm:gap-3 sm:px-3">
+                    <Image
+                        src={LogoImg}
+                        alt="Logo do jogo da memória"
+                        width={4}
+                        className=" shrink-0 sm:h-9 sm:w-9"
+                    />
+                    <h1 className="max-w-[100px] text-xl font-extrabold ">
+                        Jogo da Memória
+                    </h1>
+                </div>
 
                 <div className="my-[30px] w-full max-[750px]:flex max-[750px]:justify-around max-[750px]:text-center">
                     <InfoItem label="Tempo" value={`${formatTimeElapsed(time)}`} />
@@ -142,7 +144,22 @@ export default function Home() {
                     ))}
                 </div>
             </div>
-
+            {hasWon && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+                    <div className="w-full max-w-sm rounded-2xl bg-white p-6 text-center shadow-2xl">
+                        <h2 className="text-2xl font-bold text-cyan-600">vc ganhou</h2>
+                        <p className="mt-2 text-sm text-gray-600">
+                            Tempo: {formatTimeElapsed(time)} | Movimentos: {moves}
+                        </p>
+                        <button
+                            onClick={resetAndCreateGrid}
+                            className="mt-5 w-full cursor-pointer rounded-xl bg-cyan-500 px-4 py-2 font-semibold text-white transition-all duration-300 hover:bg-cyan-600"
+                        >
+                            Jogar novamente
+                        </button>
+                    </div>
+                </div>
+            )}
 
         </div>
     );
