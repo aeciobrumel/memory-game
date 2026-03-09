@@ -18,10 +18,7 @@ Jogo da memória web desenvolvido com Next.js, React e TypeScript.
 - Botão para jogar novamente após vencer
 
 ## Screenshot
-
-![Screenshot do Memory Game](docs/screenshot.png)
-
-> Adicione a imagem em `docs/screenshot.png` para exibir o print no README.
+<img width="709" alt="Captura de tela 2026-03-09 170309" src="https://github.com/user-attachments/assets/79e4c262-0dd7-4e58-9d9b-74ac912b4c91" />
 
 ## Como executar
 
