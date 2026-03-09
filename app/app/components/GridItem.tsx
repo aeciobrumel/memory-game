@@ -11,20 +11,27 @@ export const GridItem = ({ item, onClick }: Props) => {
   const hasBackground = item.permanentShow || item.show;
 
   return (
-    <div
-      className={`w-35 h-35 ${hasBackground ? "bg-cyan-500" : "bg-gray-300"} flex justify-center items-center rounded-2xl`}
+    <div className="w-20 md:w-28 aspect-square [perspective:1000px] cursor-pointer"
       onClick={onClick}
     >
-      {!item.permanentShow && !item.show && (
-        <div className="brightness-2 invert">
-          <Image src={dadoSvg} alt="Dado" width={60} className="brightness" />
+
+      <div
+        className={`relative h-full w-full rounded-2xl transition-transform duration-500 [transform-style:preserve-3d] ${hasBackground ? "[transform:rotateY(180deg)]" : "[transform:rotateY(0deg)]"
+          }`}
+      >
+        <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-gray-300 [backface-visibility:hidden]">
+          <Image src={dadoSvg} alt="Dado" width={60} />
         </div>
-      )}
-      {(item.permanentShow || item.show) && item.item !== null && (
-        <div className="text-2xl font-bold text-white">
-          <Image src={items[item.item].image} alt={items[item.item].name} width={60} className="brightness-0 invert" />
+        <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-cyan-500 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+          {item.item !== null && (
+            <Image src={items[item.item].image}
+              alt={items[item.item].name}
+              width={60}
+              className="brightness-0 invert"
+            />
+          )}
         </div>
-      )}
+      </div >
     </div>
   );
 };
