@@ -114,16 +114,15 @@ export default function Home() {
     }, [moves, gridItems]);
     return (
         <div className="mx-auto flex w-screen max-w-[750px] py-[50px] max-[750px]:flex-col">
-            <div className="flex flex-col max-[750px]:m-[50px] max-[750px]:items-center ">
-
-                <div className="flex items-center justify-start gap-2 rounded-2xl px-2 py-2 text-cyan-500 transition-colors duration-300 hover:bg-cyan-50 sm:gap-3 sm:px-3">
+            <div className="flex flex-col max-[750px]:mb-[20px] max-[750px]:items-center ">
+                <div className="flex items-center justify-start gap-2 rounded-2xl px-0 py-0 md:px-2 md:py-2 text-cyan-500 transition-colors duration-300 hover:bg-cyan-50 sm:gap-3 sm:px-3">
                     <Image
                         src={LogoImg}
                         alt="Logo do jogo da memória"
-                        width={4}
-                        className=" shrink-0 sm:h-9 sm:w-9"
+                        width={60}
+                        className=" shrink-0 sm:h-10 sm:w-10"
                     />
-                    <h1 className="max-w-[100px] text-xl font-extrabold ">
+                    <h1 className="md:max-w-[100px] max-w-[150px] text-3xl md:text-xl font-extrabold ">
                         Jogo da Memória
                     </h1>
                 </div>
