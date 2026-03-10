@@ -146,7 +146,7 @@ export default function Home() {
             {hasWon && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
                     <div className="w-full max-w-sm rounded-2xl bg-white p-6 text-center shadow-2xl">
-                        <h2 className="text-2xl font-bold text-cyan-600">vc ganhou</h2>
+                        <h2 className="text-2xl font-bold text-cyan-600">Você ganhou!</h2>
                         <p className="mt-2 text-sm text-gray-600">
                             Tempo: {formatTimeElapsed(time)} | Movimentos: {moves}
                         </p>
